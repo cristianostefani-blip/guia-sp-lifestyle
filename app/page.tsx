@@ -130,17 +130,18 @@ export default function Home() {
 
       </main>
 
-      {/* FOOTER ATUALIZADO */}
+      {/* FOOTER ATUALIZADO E CORRIGIDO */}
       <footer className="bg-gray-100 py-10 mt-10 border-t border-gray-200">
         <div className="max-w-3xl mx-auto px-6 text-center text-gray-500 text-xs">
           <p className="mb-4">
             Este site é um informativo de estilo de vida e não possui vínculo direto com as clínicas citadas.
           </p>
           <div className="flex justify-center space-x-6">
-            <Link href="app/termos/page.tsx" className="hover:underline">
+            {/* CORREÇÃO AQUI: Apenas a barra e o nome da pasta */}
+            <Link href="/termos" className="hover:underline">
               Termos de Uso
             </Link>
-            <Link href="app/privacidade/page.tsx" className="hover:underline">
+            <Link href="/privacidade" className="hover:underline">
               Política de Privacidade
             </Link>
             <a href="mailto:contato@melhoreskamas.com" className="hover:underline">
