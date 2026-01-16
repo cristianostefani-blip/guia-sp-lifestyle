@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function Home() {
   // CONFIGURAÇÃO: Coloque aqui o link final para a home do Kamaww ou a lista de SP
-  const TARGET_LINK = "https://kamaww.com"; 
+  const TARGET_LINK = "https://kamaww.com?utm_source=guia_lifestyle&utm_medium=bridge_page&utm_campaign=botao_ver_lista"; 
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-gray-200">
