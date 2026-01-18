@@ -1,127 +1,129 @@
-
-import { ArrowRight, ShieldCheck, Star, Clock } from 'lucide-react';
-import Link from 'next/link';
+import React from 'react';
 import Image from 'next/image';
-import Header from './components/Header'; // Ajuste o caminho conforme onde criou
+import Link from 'next/link';
+import { ChevronRight, Star, Activity, MapPin } from 'lucide-react';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
-// METADATA - É aqui que o Google e o Facebook leem o título do site
-export const metadata = {
-  title: 'O Novo Luxo em SP: Guia de Descompressão | SP Lifestyle',
-  description: 'Descubra os melhores locais para relaxamento e terapias sensoriais em São Paulo.',
-};
+// --- CONFIGURAÇÃO FÁCIL (ADICIONE NOVAS PÁGINAS AQUI) ---
+const editorials = [
+  {
+    id: 'lifestyle',
+    title: "O Guia Secreto de SP",
+    subtitle: "LIFESTYLE & LUXO",
+    description: "Uma curadoria implacável dos melhores bares, alfaiates e experiências que a capital paulista esconde. Apenas para quem exige excelência.",
+    link: "/lifestyle",
+    image: "/hero-sp.jpg", // Você precisará dessa imagem na pasta public
+    icon: Star,
+    color: "bg-black text-white"
+  },
+  {
+    id: 'vitalidade',
+    title: "Projeto Vitalidade 50+",
+    subtitle: "SAÚDE & PERFORMANCE",
+    description: "Protocolos de nutrição anabólica e treino de potência para homens que recusam o declínio. Recupere a virilidade fisiológica.",
+    link: "/vitalidade",
+    image: "/hero-vitalidade.jpg", // Use a mesma imagem que usamos na página interna
+    icon: Activity,
+    color: "bg-yellow-600 text-black"
+  },
+  // No futuro, basta copiar e colar um bloco desse para adicionar "Charutos", "Vinhos", etc.
+];
 
 export default function Home() {
-  // CONFIGURAÇÃO: Coloque aqui o link final para a home do Kamaww ou a lista de SP
-  const TARGET_LINK = "https://kamaww.com?utm_source=guia_lifestyle&utm_medium=bridge_page&utm_campaign=botao_ver_lista"; 
-
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-gray-200">
+    <div className="min-h-screen bg-neutral-50 flex flex-col font-sans text-gray-900">
       <Header />
-      
-      <main className="max-w-3xl mx-auto px-6 py-10">
+
+      <main className="grow">
         
-        {/* CATEGORIA E DATA */}
-        <div className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-          <span className="uppercase tracking-wide font-semibold text-blue-900">Bem-estar</span>
-          <span>•</span>
-          <span>Atualizado em Janeiro, 2026</span>
-          <span>•</span>
-          <div className="flex items-center">
-            <Clock size={14} className="mr-1" /> 3 min de leitura
+        {/* HERO SECTION: MANCHETE PRINCIPAL (Pode ser estática ou destacar o último post) */}
+        <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-black overflow-hidden">
+          <div className="absolute inset-0 opacity-60">
+             {/* Sugestão: Uma foto genérica de SP bonita em preto e branco */}
+             <Image 
+                src="/hero-sp.jpg" // Coloque uma foto bonita de SP aqui
+                alt="São Paulo Lifestyle"
+                fill
+                className="object-cover"
+                priority
+             />
           </div>
-        </div>
-
-        {/* MANCHETE */}
-        <h1 className="text-3xl md:text-5xl font-serif font-bold text-gray-900 leading-tight mb-6">
-          O "Novo Luxo" em São Paulo não é sobre ter. É sobre sentir.
-        </h1>
-
-        <h2 className="text-xl md:text-2xl text-gray-600 font-light mb-8 leading-relaxed">
-          Executivos e empresários estão trocando o Happy Hour barulhento por terapias sensoriais privadas. Entenda a tendência do "Escape Urbano".
-        </h2>
-
-        {/* IMAGEM DE DESTAQUE (Versão Otimizada e Grátis) */}
-        <div className="w-full h-64 md:h-96 bg-gray-300 rounded-sm mb-8 overflow-hidden shadow-sm relative">
-           <Image 
-             src="/spa-hero.jpg"   // <--- O nome exato do arquivo na pasta public
-             alt="Ambiente de relaxamento luxuoso em SP" 
-             fill                  // <--- Faz a imagem preencher todo o espaço da div pai
-             className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-             unoptimized           // <--- O SEGREDO: Isso desliga o processamento da Vercel (Custo Zero)
-             priority              // <--- Carrega essa imagem primeiro (melhora nota no Google)
-           />
-           
-           <div className="absolute bottom-0 left-0 bg-black/50 text-white text-xs px-2 py-1 z-10">
-             Ambiente Ilustrativo • Privacidade Total
-           </div>
-        </div>
-
-        {/* ARTIGO */}
-        <article className="prose prose-lg prose-gray max-w-none">
-          <p className="mb-6">
-            São Paulo cobra um preço alto de quem vive nela. O trânsito, as reuniões intermináveis e a pressão constante criam um estado de alerta permanente. Médicos chamam de <em>Burnout</em>. Nós chamamos de "Sinal Vermelho".
-          </p>
+          <div className="absolute inset-0 bg-black/40" /> {/* Filtro escuro */}
           
-          <p className="mb-6">
-            Não é surpresa que a busca por <strong>Terapias Corporais e Massagens Sensoriais</strong> tenha crescido 300% entre o público masculino de alta renda no último ano.
-          </p>
+          <div className="relative z-10 text-center px-6 max-w-4xl">
+            <span className="inline-block py-1 px-3 border border-white/30 text-white text-xs tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
+              Edição 2026
+            </span>
+            <h1 className="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight">
+              A Arte de Viver em <br/>
+              <span className="italic font-light text-yellow-500">São Paulo</span>
+            </h1>
+            <p className="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-8 font-light">
+              O portal definitivo para o homem moderno. Gastronomia, saúde, negócios e o melhor que a vida urbana pode oferecer.
+            </p>
+          </div>
+        </section>
 
-          <div className="bg-blue-50 border-l-4 border-blue-900 p-6 my-8 italic text-gray-700">
-            "Não é apenas sobre massagem. É sobre desligar o cérebro por uma hora e ser cuidado em um ambiente onde ninguém sabe seu nome."
+        {/* LISTA DE EDITORIAS (GRID AUTOMÁTICO) */}
+        <section className="max-w-6xl mx-auto px-6 py-16">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px bg-gray-300 flex-1"></div>
+            <h2 className="text-sm font-bold tracking-widest text-gray-400 uppercase">Editorias em Destaque</h2>
+            <div className="h-px bg-gray-300 flex-1"></div>
           </div>
 
-          <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">O Problema: Onde encontrar qualidade?</h3>
-          
-          <p className="mb-6">
-            Ao procurar no Google ou redes sociais, é fácil cair em armadilhas: fotos falsas, ambientes sem higiene ou falta de segurança. A discrição é fundamental, e a qualidade é inegociável.
-          </p>
-          
-          <p className="mb-6">
-            Para resolver isso, o <strong>Projeto Kamaww</strong> realizou uma curadoria rigorosa na capital.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {editorials.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link href={item.link} key={item.id} className="group">
+                  <article className="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out h-full flex flex-col rounded-xl overflow-hidden group-hover:-translate-y-1">
+                    
+                    {/* Imagem do Card */}
+                    <div className="relative h-64 w-full overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded ${item.color}`}>
+                          {item.subtitle}
+                        </span>
+                      </div>
+                    </div>
 
-          <ul className="space-y-4 mb-10 mt-6">
-            <li className="flex items-start">
-              <ShieldCheck className="text-green-600 mr-3 mt-1 shrink-0" />
-              <span><strong>Verificação de Fotos:</strong> Apenas locais com fotos reais do ambiente.</span>
-            </li>
-            <li className="flex items-start">
-              <Star className="text-yellow-600 mr-3 mt-1 shrink-0" />
-              <span><strong>Avaliação de Atendimento:</strong> Foco na experiência do cliente e respeito.</span>
-            </li>
-            <li className="flex items-start">
-              <Clock className="text-blue-600 mr-3 mt-1 shrink-0" />
-              <span><strong>Discrição Absoluta:</strong> Locais preparados para receber público executivo.</span>
-            </li>
-          </ul>
-        </article>
+                    {/* Conteúdo do Card */}
+                    <div className="p-8 flex flex-col grow">
+                      <div className="flex items-center gap-2 mb-3 text-gray-400">
+                        <Icon size={16} />
+                        <span className="text-xs font-medium uppercase tracking-wider">Acesso Exclusivo</span>
+                      </div>
+                      
+                      <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3 group-hover:text-yellow-700 transition-colors">
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-gray-500 leading-relaxed mb-6 grow">
+                        {item.description}
+                      </p>
 
-        {/* CTA SECTION - A PARTE MAIS IMPORTANTE */}
-        <div className="mt-12 p-8 bg-gray-900 rounded-lg text-center shadow-xl">
-          <h3 className="text-2xl text-white font-bold mb-4">
-            Acesse o Guia Oficial SP
-          </h3>
-          <p className="text-gray-300 mb-8">
-            Filtramos as opções amadoras. Veja agora a lista das clínicas e espaços credenciados que passaram no nosso controle de qualidade.
-          </p>
-          
-          <a 
-            href={TARGET_LINK}
-            className="inline-flex items-center justify-center w-full md:w-auto bg-white text-gray-900 font-bold text-lg px-8 py-4 rounded hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-          >
-            VER LISTA DE CLÍNICAS APROVADAS
-            <ArrowRight className="ml-2" />
-          </a>
-          
-          <p className="text-gray-500 text-xs mt-4">
-            Acesso restrito a maiores de 18 anos.
-          </p>
-        </div>
+                      <div className="flex items-center text-sm font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">
+                        LER MATÉRIA <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
 
       </main>
 
-    <Footer />
+      <Footer />
     </div>
   );
 }
