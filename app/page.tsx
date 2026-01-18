@@ -13,7 +13,7 @@ const editorials = [
     subtitle: "LIFESTYLE & LUXO",
     description: "Uma curadoria implacável dos melhores bares, alfaiates e experiências que a capital paulista esconde. Apenas para quem exige excelência.",
     link: "/lifestyle",
-    image: "/hero-sp.jpg", // Você precisará dessa imagem na pasta public
+    image: "/spa-hero.jpg", // Você precisará dessa imagem na pasta public
     icon: Star,
     color: "bg-black text-white"
   },
@@ -23,7 +23,7 @@ const editorials = [
     subtitle: "SAÚDE & PERFORMANCE",
     description: "Protocolos de nutrição anabólica e treino de potência para homens que recusam o declínio. Recupere a virilidade fisiológica.",
     link: "/vitalidade",
-    image: "/hero-vitalidade.jpg", // Use a mesma imagem que usamos na página interna
+    image: "/hero-desktop.jpg", // Use a mesma imagem que usamos na página interna
     icon: Activity,
     color: "bg-yellow-600 text-black"
   },
@@ -38,11 +38,11 @@ export default function Home() {
       <main className="grow">
         
         {/* HERO SECTION: MANCHETE PRINCIPAL (Pode ser estática ou destacar o último post) */}
-        <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-black overflow-hidden">
+        <section className="relative h-[50vh] min-h-100 flex items-center justify-center bg-black overflow-hidden">
           <div className="absolute inset-0 opacity-60">
              {/* Sugestão: Uma foto genérica de SP bonita em preto e branco */}
              <Image 
-                src="/hero-sp.jpg" // Coloque uma foto bonita de SP aqui
+                src="/hero-capa.jpg" // Coloque uma foto bonita de SP aqui
                 alt="São Paulo Lifestyle"
                 fill
                 className="object-cover"

@@ -21,7 +21,7 @@ export default function VitalidadePage() {
   // Estado do Chat
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { type: 'bot', text: 'Olá, guerreiro. Sou o Especialista IA do Kama Vitality. Analiso sua idade e objetivos para sugerir o treino e a dieta ideais. O que você busca hoje?' }
+    { type: 'bot', text: 'Olá, guerreiro. Sou o Especialista IA de SP LifeStyle. Analiso sua idade e objetivos para sugerir o treino e a dieta ideais. O que você busca hoje?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -104,7 +104,7 @@ export default function VitalidadePage() {
       <div className="bg-white"><Header /></div>
       
       {/* 1. HERO SECTION OTIMIZADA */}
-      <div className="relative h-[600px] w-full overflow-hidden">
+      <div className="relative h-150 w-full overflow-hidden">
         
         {/* IMAGEM DE FUNDO - Lembre de colocar as imagens na pasta public */}
         <div className="absolute inset-0">
@@ -118,7 +118,7 @@ export default function VitalidadePage() {
             </picture>
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-neutral-900 via-neutral-900/60 to-transparent"></div>
 
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 max-w-4xl">
              <div className="flex items-center gap-3 mb-4">
@@ -133,7 +133,7 @@ export default function VitalidadePage() {
           
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
             NÃO É SÓ SOBRE<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-400 to-yellow-600">
               ESTÉTICA.
             </span> É POTÊNCIA.
           </h1>
@@ -214,7 +214,7 @@ export default function VitalidadePage() {
         {/* 3. BANNER IA */}
         <div 
           onClick={() => setIsChatOpen(true)}
-          className="relative bg-gradient-to-r from-yellow-500 to-yellow-600 border-2 border-yellow-400 rounded-3xl p-8 md:p-12 cursor-pointer hover:shadow-[0_0_60px_rgba(234,179,8,0.4)] transition-all group overflow-hidden"
+          className="relative bg-linear-to-r from-yellow-500 to-yellow-600 border-2 border-yellow-400 rounded-3xl p-8 md:p-12 cursor-pointer hover:shadow-[0_0_60px_rgba(234,179,8,0.4)] transition-all group overflow-hidden"
         >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-white/30 transition duration-500"></div>
 
@@ -243,7 +243,7 @@ export default function VitalidadePage() {
       {/* 4. CHAT MODAL */}
       {isChatOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-[90vw] md:w-[600px] h-[80vh] md:h-[750px] max-h-[90vh] bg-neutral-900 border border-yellow-600/30 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all">
+          <div className="w-[90vw] md:w-150 h-[80vh] md:h-187,5 max-h-[90vh] bg-neutral-900 border border-yellow-600/30 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all">
             
             <div className="bg-neutral-950 p-4 border-b border-neutral-800 flex justify-between items-center shrink-0">
               <div className="flex items-center gap-3">

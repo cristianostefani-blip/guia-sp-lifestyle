@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-gray-100 py-10 mt-10 border-t border-gray-200">
       <div className="max-w-3xl mx-auto px-6 text-center text-gray-500 text-xs">
         <p className="mb-4">
-          Este site é um informativo de estilo de vida e não possui vínculo direto com as clínicas citadas.
+          Este site é um informativo de estilo de vida e não possui vínculo direto com os estabelecimentos citados.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
           <Link href="/termos" className="hover:underline">
