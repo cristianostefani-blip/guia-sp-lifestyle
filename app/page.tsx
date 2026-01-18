@@ -2,6 +2,8 @@
 import { ArrowRight, ShieldCheck, Star, Clock } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Header from './components/Header'; // Ajuste o caminho conforme onde criou
+import Footer from './components/Footer';
 
 // METADATA - É aqui que o Google e o Facebook leem o título do site
 export const metadata = {
@@ -15,19 +17,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-gray-200">
+      <Header />
       
-      {/* HEADER SIMPLES */}
-      <header className="bg-white border-b border-gray-200 py-4">
-        <div className="max-w-3xl mx-auto px-6 flex justify-between items-center">
-          <span className="text-xl font-bold tracking-tighter text-black uppercase">
-            SP • LIFESTYLE
-          </span>
-          <span className="text-xs font-semibold bg-black text-white px-2 py-1 rounded">
-            GUIA 2026
-          </span>
-        </div>
-      </header>
-
       <main className="max-w-3xl mx-auto px-6 py-10">
         
         {/* CATEGORIA E DATA */}
@@ -130,27 +121,7 @@ export default function Home() {
 
       </main>
 
-      {/* FOOTER ATUALIZADO E CORRIGIDO */}
-      <footer className="bg-gray-100 py-10 mt-10 border-t border-gray-200">
-        <div className="max-w-3xl mx-auto px-6 text-center text-gray-500 text-xs">
-          <p className="mb-4">
-            Este site é um informativo de estilo de vida e não possui vínculo direto com as clínicas citadas.
-          </p>
-          <div className="flex justify-center space-x-6">
-            {/* CORREÇÃO AQUI: Apenas a barra e o nome da pasta */}
-            <Link href="/termos" className="hover:underline">
-              Termos de Uso
-            </Link>
-            <Link href="/privacidade" className="hover:underline">
-              Política de Privacidade
-            </Link>
-            <a href="mailto:contato@melhoreskamas.com" className="hover:underline">
-              Contato
-            </a>
-          </div>
-          <p className="mt-6">© 2026 SP Lifestyle Guide. Todos os direitos reservados.</p>
-        </div>
-      </footer>
+    <Footer />
     </div>
   );
 }
