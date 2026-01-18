@@ -1,21 +1,24 @@
-
 import { ArrowRight, ShieldCheck, Star, Clock } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Header from '../components/Header'; // Importou certo
+import Footer from '../components/Footer'; // Importou certo
 
-// METADATA - É aqui que o Google e o Facebook leem o título do site
+// METADATA
 export const metadata = {
   title: 'O Novo Luxo em SP: Guia de Descompressão | SP Lifestyle',
   description: 'Descubra os melhores locais para relaxamento e terapias sensoriais em São Paulo.',
 };
 
-export default function Home() {
-  // CONFIGURAÇÃO: Coloque aqui o link final para a home do Kamaww ou a lista de SP
+// Mudei o nome da função para LifestylePage para não confundir com a Home real
+export default function LifestylePage() {
+  
   const TARGET_LINK = "https://kamaww.com?utm_source=guia_lifestyle&utm_medium=bridge_page&utm_campaign=botao_ver_lista"; 
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-gray-200">
 
+      {/* 1. O HEADER ENTRA AQUI */}
+      <Header />
       
       <main className="max-w-3xl mx-auto px-6 py-10">
         
@@ -39,17 +42,16 @@ export default function Home() {
           Executivos e empresários estão trocando o Happy Hour barulhento por terapias sensoriais privadas. Entenda a tendência do "Escape Urbano".
         </h2>
 
-        {/* IMAGEM DE DESTAQUE (Versão Otimizada e Grátis) */}
+        {/* IMAGEM DE DESTAQUE */}
         <div className="w-full h-64 md:h-96 bg-gray-300 rounded-sm mb-8 overflow-hidden shadow-sm relative">
            <Image 
-             src="/spa-hero.jpg"   // <--- O nome exato do arquivo na pasta public
+             src="/spa-hero.jpg" 
              alt="Ambiente de relaxamento luxuoso em SP" 
-             fill                  // <--- Faz a imagem preencher todo o espaço da div pai
+             fill 
              className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-             unoptimized           // <--- O SEGREDO: Isso desliga o processamento da Vercel (Custo Zero)
-             priority              // <--- Carrega essa imagem primeiro (melhora nota no Google)
+             unoptimized 
+             priority 
            />
-           
            <div className="absolute bottom-0 left-0 bg-black/50 text-white text-xs px-2 py-1 z-10">
              Ambiente Ilustrativo • Privacidade Total
            </div>
@@ -95,7 +97,7 @@ export default function Home() {
           </ul>
         </article>
 
-        {/* CTA SECTION - A PARTE MAIS IMPORTANTE */}
+        {/* CTA SECTION */}
         <div className="mt-12 p-8 bg-gray-900 rounded-lg text-center shadow-xl">
           <h3 className="text-2xl text-white font-bold mb-4">
             Acesse o Guia Oficial SP
@@ -118,6 +120,9 @@ export default function Home() {
         </div>
 
       </main>
+
+      {/* 2. O FOOTER ENTRA AQUI */}
+      <Footer />
 
     </div>
   );
