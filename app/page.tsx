@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, Star, Activity, MapPin } from 'lucide-react';
+import { ChevronRight, Star, Activity } from 'lucide-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -13,7 +13,7 @@ const editorials = [
     subtitle: "LIFESTYLE & LUXO",
     description: "Uma curadoria implacável dos melhores bares, alfaiates e experiências que a capital paulista esconde. Apenas para quem exige excelência.",
     link: "/lifestyle",
-    image: "/spa-hero.jpg", // Você precisará dessa imagem na pasta public
+    image: "/spa-hero.jpg", 
     icon: Star,
     color: "bg-black text-white"
   },
@@ -23,11 +23,10 @@ const editorials = [
     subtitle: "SAÚDE & PERFORMANCE",
     description: "Protocolos de nutrição anabólica e treino de potência para homens que recusam o declínio. Recupere a virilidade fisiológica.",
     link: "/vitalidade",
-    image: "/hero-desktop.jpg", // Use a mesma imagem que usamos na página interna
+    image: "/hero-desktop.jpg", 
     icon: Activity,
     color: "bg-yellow-600 text-black"
   },
-  // No futuro, basta copiar e colar um bloco desse para adicionar "Charutos", "Vinhos", etc.
 ];
 
 export default function Home() {
@@ -37,19 +36,18 @@ export default function Home() {
 
       <main className="grow">
         
-        {/* HERO SECTION: MANCHETE PRINCIPAL (Pode ser estática ou destacar o último post) */}
-        <section className="relative h-[50vh] min-h-100 flex items-center justify-center bg-black overflow-hidden">
+        {/* HERO SECTION */}
+        <section className="relative h-[50vh] min-h-125 flex items-center justify-center bg-black overflow-hidden">
           <div className="absolute inset-0 opacity-60">
-             {/* Sugestão: Uma foto genérica de SP bonita em preto e branco */}
              <Image 
-                src="/hero-capa.jpg" // Coloque uma foto bonita de SP aqui
+                src="/hero-capa.jpg" 
                 alt="São Paulo Lifestyle"
                 fill
                 className="object-cover"
                 priority
              />
           </div>
-          <div className="absolute inset-0 bg-black/40" /> {/* Filtro escuro */}
+          <div className="absolute inset-0 bg-black/40" /> 
           
           <div className="relative z-10 text-center px-6 max-w-4xl">
             <span className="inline-block py-1 px-3 border border-white/30 text-white text-xs tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
@@ -65,7 +63,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* LISTA DE EDITORIAS (GRID AUTOMÁTICO) */}
+        {/* LISTA DE EDITORIAS */}
         <section className="max-w-6xl mx-auto px-6 py-16">
           <div className="flex items-center gap-4 mb-12">
             <div className="h-px bg-gray-300 flex-1"></div>
@@ -80,7 +78,6 @@ export default function Home() {
                 <Link href={item.link} key={item.id} className="group">
                   <article className="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out h-full flex flex-col rounded-xl overflow-hidden group-hover:-translate-y-1">
                     
-                    {/* Imagem do Card */}
                     <div className="relative h-64 w-full overflow-hidden">
                       <Image
                         src={item.image}
@@ -95,7 +92,6 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Conteúdo do Card */}
                     <div className="p-8 flex flex-col grow">
                       <div className="flex items-center gap-2 mb-3 text-gray-400">
                         <Icon size={16} />
